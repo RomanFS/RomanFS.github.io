@@ -1,13 +1,19 @@
+const time_delay_animation = 500; // see in CSS
+const time_delay_spare = 100; // to your taste
+
 document.getElementsByClassName('service-labels')[0].onclick = function() {
-	
 	let radio = this.getElementsByTagName('input');
 	let items = document.getElementsByClassName('services-item-ct');
 
 	for(let i = 0; i < radio.length; i++) {
 		if (radio[i].checked) {
-			items[i].className += ' active'; 
-		} else {			
-			items[i].className = 'services-item-ct'; 
+			if(!items[i].classList.contains('active')){
+				items[i].classList.add('active');
+			}
+		} else {
+			if(items[i].classList.contains('active')){
+				items[i].classList.remove('active');
+			}
 		}
 	}
 }
@@ -23,13 +29,19 @@ for(let i = 0; i < items.length; i++){
 }
 
 document.getElementsByClassName('right')[0].onclick = function() {
+	let this_button = document.getElementsByClassName('right')[0];
 	for(let i = 0; i < items.length; i++) {
 		let current_pos = parseInt(items[i].getAttribute('screlement'));
-		if(parseInt(items[i].getAttribute('screlement'))+1 >= items.length){
+		if(parseInt(items[i].getAttribute('screlement')) >= items.length-1){
 			current_pos = 0;
 			items[i].setAttribute('screlement', current_pos);
 			items[i].style.display = 'none';
-			setTimeout(function(){ items[i].style.display = 'block'; }, 500+100); // 500ms - animation delay, 100ms - delay for exec next instructions
+
+			this_button.setAttribute('disabled', 'disabled');
+			setTimeout(function(){
+				items[i].style.display = 'block';
+				this_button.removeAttribute('disabled');
+			}, time_delay_animation+time_delay_spare);
 		}else{
 			current_pos++;
 			items[i].setAttribute('screlement', current_pos);
@@ -39,12 +51,25 @@ document.getElementsByClassName('right')[0].onclick = function() {
 	}
 }
 
-document.getElementsByClassName('left')[0].onclick = function() {	
-
-	let lastIndex = index.shift();
-	index.push(lastIndex);
-
+document.getElementsByClassName('left')[0].onclick = function() {
+	let this_button = document.getElementsByClassName('left')[0];
 	for(let i = 0; i < items.length; i++) {
-		items[i].style.transform = 'translateX('+ index[i] + '%)';
+		let current_pos = parseInt(items[i].getAttribute('screlement'));
+		if(parseInt(items[i].getAttribute('screlement')) <= 0){
+			current_pos = items.length-1;
+			items[i].setAttribute('screlement', current_pos);
+			items[i].style.display = 'none';
+
+			this_button.setAttribute('disabled', 'disabled');
+			setTimeout(function(){
+				items[i].style.display = 'block';
+				this_button.removeAttribute('disabled');
+			}, time_delay_animation+time_delay_spare);
+		}else{
+			current_pos--;
+			items[i].setAttribute('screlement', current_pos);
+		}
+
+		items[i].style.transform = 'translateX('+ (current_pos-1)*100 + '%)';
 	}
 }

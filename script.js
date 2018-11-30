@@ -7,9 +7,13 @@ document.getElementsByClassName('service-labels')[0].onclick = function() {
 
 	for(let i = 0; i < radio.length; i++) {
 		if (radio[i].checked) {
-			items[i].className += ' active'; 
-		} else {			
-			items[i].className = 'services-item-ct'; 
+			if(!items[i].classList.contains('active')){
+				items[i].classList.add('active');
+			}
+		} else {
+			if(items[i].classList.contains('active')){
+				items[i].classList.remove('active');
+			}
 		}
 	}
 }

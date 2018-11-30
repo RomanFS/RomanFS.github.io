@@ -15,16 +15,24 @@ document.getElementsByClassName('service-labels')[0].onclick = function() {
 //let left_but = document.getElementsByClassName('left')[0];
 //let right_but = document.getElementsByClassName('right')[0];
 
+let index = [-100, 0, 100, 200];
 let items = document.getElementsByClassName('slider-item');
 
 document.getElementsByClassName('right')[0].onclick = function() {	
+	let lastIndex = index.pop();
+	index.unshift(lastIndex);
 
 	for(let i = 0; i < items.length; i++) {
-		let change = (i-1)*100;
-		items[i].style.transform = 'translateX('+ change + '%)';
+		items[i].style.transform = 'translateX('+ index[i] + '%)';
 	}
+}
 
-	let lastItem = items.pop();
-	
-	items.shift(lastItem); 
+document.getElementsByClassName('left')[0].onclick = function() {	
+
+	let lastIndex = index.shift();
+	index.push(lastIndex);
+
+	for(let i = 0; i < items.length; i++) {
+		items[i].style.transform = 'translateX('+ index[i] + '%)';
+	}
 }

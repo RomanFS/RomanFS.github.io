@@ -18,12 +18,24 @@ document.getElementsByClassName('service-labels')[0].onclick = function() {
 let index = [-100, 0, 100, 200];
 let items = document.getElementsByClassName('slider-item');
 
-document.getElementsByClassName('right')[0].onclick = function() {	
-	let lastIndex = index.pop();
-	index.unshift(lastIndex);
+for(let i = 0; i < items.length; i++){
+	items[i].setAttribute('screlement', i);
+}
 
+document.getElementsByClassName('right')[0].onclick = function() {
 	for(let i = 0; i < items.length; i++) {
-		items[i].style.transform = 'translateX('+ index[i] + '%)';
+		let current_pos = parseInt(items[i].getAttribute('screlement'));
+		if(parseInt(items[i].getAttribute('screlement'))+1 >= items.length){
+			current_pos = 0;
+			items[i].setAttribute('screlement', current_pos);
+			items[i].style.display = 'none';
+			setTimeout(function(){ items[i].style.display = 'block'; }, 500+100); // 500ms - animation delay, 100ms - delay for exec next instructions
+		}else{
+			current_pos++;
+			items[i].setAttribute('screlement', current_pos);
+		}
+
+		items[i].style.transform = 'translateX('+ (current_pos-1)*100 + '%)';
 	}
 }
 

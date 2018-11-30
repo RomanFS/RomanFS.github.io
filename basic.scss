@@ -1,0 +1,106 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body, html {
+	width: 100%;
+	height: 100%;
+}
+
+.nw {
+	width: 1140px;
+	margin: 0 auto;
+}
+
+*:focus {
+	outline: none;
+	box-shadow: 0 0 5px $orange !important;
+}
+
+ul, li, a, i {
+	font-style: normal;
+	text-decoration: none;
+	text-decoration-line: none;
+	list-style: none;
+}
+
+h1, h2 {
+	font: {
+		weight: 600;
+		size: 48px;
+		family: $head_font;
+	} 
+	padding-top: 20px;
+	text-align: center;
+}
+
+h3 {
+	font: {
+		weight: 600;
+		size: 24px;
+		family: $head_font;
+	}
+	text-align: center;
+}
+
+
+p, input, a, textarea {
+	font: {
+		weight: 400;
+		size: 14px;
+		family: $main_font;
+	}
+}
+
+button {
+	font: {
+		weight: 600;
+		size: 14px;
+		family: $main_font;
+	}
+}
+
+section {
+	padding: 100px 0 50px;
+}
+
+
+.header-title {
+	margin: 0 auto;
+	padding: 100px 0;
+	width: 60%;
+
+	p {
+		text-align: center;
+	}
+}
+
+.section-title {
+	padding-bottom: 100px;
+}
+
+.section-title > p, .header-title > p {
+	text-align: center;
+	font-size: 14px;
+	color: $gray;
+}
+
+.orange-word {
+	color: $orange;
+}
+
+header, footer {
+	background-color: $bg_gray;
+}
+
+header {
+	background: url('images/bg-image.jpg') center no-repeat;
+}
+
+.team,
+.futured-works,
+.sponsors {
+	background-color: $white;
+}

@@ -2,12 +2,22 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Smart agency</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Smart agency landing page">
+
+	<title>Smart agency</title>
+	
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet">
-	<link rel="stylesheet" href="style.css">
+
+	<link rel="stylesheet" type="text/css" href="slick/slick.css">
+	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css">
+	<link rel="stylesheet" href="style.css">	
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 	<header>
@@ -31,9 +41,9 @@
 			<div class="header-message">				
 				<form action="">
 					<h3><span class="orange-word">Send</span> A Message</h3>
-					<input type="text" placeholder="Your Name">
-					<input type="email" pattern=".+@globex.com" size="30" required placeholder="Your Email">
-					<textarea name="massege-text" cols="20" rows="8" placeholder="Your Message"></textarea>
+					<input type="text" required placeholder="Your Name">
+					<input type="email" size="30" required placeholder="Your Email">
+					<textarea required name="massege-text" cols="20" rows="4" placeholder="Your Message"></textarea>
 					<button>Send Massage <i class="arrow-right">&#10230</i></button>
 				</form>
 			</div>
@@ -103,10 +113,10 @@
 			</div>
 			<div class="services-ct">
 				<div class="service-labels">
-					<label class="service-1 service" for="check1"></label>
-					<label class="service-2 service" for="check2"></label>
-					<label class="service-3 service" for="check3"></label>
-					<label class="service-4 service" for="check4"></label>
+					<label class="service service-1" for="check1"></label>
+					<label class="service service-2" for="check2"></label>
+					<label class="service service-3" for="check3"></label>
+					<label class="service service-4" for="check4"></label>
 					<input type="radio" name="service" id="check1" checked>
 					<input type="radio" name="service" id="check2">
 					<input type="radio" name="service" id="check3">
@@ -247,48 +257,39 @@
 				<h2><a name="comments"></a><span class="orange-word">Clients</span> Said</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum vitae, voluptates porro alias.</p>
 			</div>
-			<div class="slider">				
-				<button class="left"><</i></button>
-				<button class="right">></i></button>
-				<div class="slider-ct">
-					<div class="slider-item one">	
-						<div class="slider-item-ct">	
-							<div class="photo"><img src="" alt=""></div>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt est provident, incidunt ducimus cupiditate veniam. Labore officia eaque, quibusdam voluptatibus.</p>
-							<div class="rating">*****</div>
-							<span>фыпвфыпа</span>
-						</div>		
-					</div>
-					<div class="slider-item two">	
-						<div class="slider-item-ct">		
-							<div class="photo"><img src="" alt=""></div>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, asperiores fugiat quo esse quasi quod at hic harum doloremque nostrum.</p>
-							<div class="rating">**</div>
-							<span>выапваыпвыап</span>
-						</div>		
-					</div>
-					<div class="slider-item three">		
-						<div class="slider-item-ct">	
-							<div class="photo"><img src="" alt=""></div>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, delectus possimus sapiente nobis. Veniam, quibusdam, aspernatur. Expedita fugit explicabo pariatur.</p>
-							<div class="rating">*****</div>
-							<span>ывпфывп</span>
-						</div>		
-					</div>
-					<div class="slider-item four">		
-						<div class="slider-item-ct">
-							<div class="photo"><img src="" alt=""></div>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo harum molestias, error voluptates, voluptatibus quos corporis eveniet similique itaque officiis.</p>
-							<div class="rating">****</div>
-							<span>Рувыфвфы</span>
-						</div>						
-					</div>
-				</div>						
-				<div class="slide-radio">
-					<button class="active"></button>
-					<button class=""></button>
-					<button class=""></button>					
-				</div>					
+			<div class="slider">		
+				<div>	
+					<div class="slider-item-ct">	
+						<div class="photo"><img src="" alt=""></div>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt est provident, incidunt ducimus cupiditate veniam. Labore officia eaque, quibusdam voluptatibus.</p>
+						<div class="rating">*****</div>
+						<span>фыпвфыпа</span>
+					</div>		
+				</div>
+				<div>	
+					<div class="slider-item-ct">		
+						<div class="photo"><img src="" alt=""></div>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, asperiores fugiat quo esse quasi quod at hic harum doloremque nostrum.</p>
+						<div class="rating">**</div>
+						<span>выапваыпвыап</span>
+					</div>		
+				</div>
+				<div>		
+					<div class="slider-item-ct">	
+						<div class="photo"><img src="" alt=""></div>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, delectus possimus sapiente nobis. Veniam, quibusdam, aspernatur. Expedita fugit explicabo pariatur.</p>
+						<div class="rating">*****</div>
+						<span>ывпфывп</span>
+					</div>		
+				</div>
+				<div>		
+					<div class="slider-item-ct">
+						<div class="photo"><img src="" alt=""></div>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo harum molestias, error voluptates, voluptatibus quos corporis eveniet similique itaque officiis.</p>
+						<div class="rating">****</div>
+						<span>Рувыфвфы</span>
+					</div>						
+				</div>							
 			</div>	
 		</div>
 	</section>
@@ -316,6 +317,7 @@
 			<span>© 2018 Krivenchenko Roman</span>
 		</div>
 	</footer>
-
-	<script src="script.js"></script>
+	
+	<script type="text/javascript" src="slick/slick.min.js" async></script>
+	<script type="text/javascript" src="script.js" async></script>
 </body>

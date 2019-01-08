@@ -8,36 +8,31 @@ $but_font: monospace;
 
 @import "basic.scss";
 
+header {
+	background:url("images/bg-image.jpg") center no-repeat
+}
+
 .menu {
 	display: grid;
-	grid-gap: 15px;
 	grid-template-columns: 1fr 3fr;
 
 	.logo {
-		padding: 30px 0;
+		padding-top: 30px;
+	}
+	
+	ul {
+		padding-top: 30px;
+		text-align: right;
 	}
 
-	ul {
-		height: 100%;
-		width: 100%;
-		display: grid;
-		grid-template-areas: ". . . . .";
-		/*display: inline-flex;
-		justify-content: space-between;*/
-	}		
 	li {
-		display: grid;
-		height: 100%;
+	    display: inline;
+	    text-align: right;
+	    margin-left: 30px;
 	}
 	a {
 		color: $gray;
-		text-transform: uppercase;
-  		justify-self: right;
-  		align-self: center;
-		/*display: flex;
-		justify-content: center;
-		flex-direction: column;
-		text-align: right;*/
+		text-align: right;
 		transition: 0.3s;
 		font: {
 			weight: 600;
@@ -54,17 +49,16 @@ $but_font: monospace;
 
 .header-message {
 	position: relative;
-	bottom: -5px;
+	bottom: -15px;
+	left: -30px;
 	display: grid;
 	grid-template-columns: 1fr 2fr;
 	
 	form {
 		display: grid;
-		grid-gap: 10px;
+		grid-gap: 15px;
 		background-color: white;
-		padding: 10px 30px;
-		border-radius: 3px;
-		box-shadow: 0 0 30px 3px #ddd;
+		padding: 30px;
 	}
 	
 	form>* {
@@ -74,25 +68,24 @@ $but_font: monospace;
 	input, textarea {
 		border: none;
 		border-bottom: 1px solid $orange;
-		padding: 5px;
+		padding: 15px;
 		resize: none;
 	}
 
 	button {
-		position: relative;
 		background-color: $orange;
 		color: white;
-		border-radius: 15px;
+		border-radius: 30px;
 		margin: 0 auto;
-		width: 80%;
+		width: 70%;
 		border: none;
-		padding: 10px;
+		padding: 15px;
 
 		.arrow-right {
-			position: absolute;
-			font-size: 20px;			
-		    right: 20%;
-		    top: 6px;
+			font: {
+				size: 12pt;
+				family: $head_font;
+			}
 		}
 	}
 }
@@ -377,41 +370,19 @@ $but_font: monospace;
 ******************************************************/
 
 .slider {
-	width: 100%;
-	position: relative;
+    padding: 0px 36px;
 }
 
-.slider-ct {
-	display: grid;
-	width: 95%;
+.slick-track {
 	height: 400px;
-	margin: 0 auto;
-	position: relative;
-	overflow: hidden;
 }
 
-.slider-item {
-	z-index: 1;
-	width: 50%;
-	height: 300px;
-	padding: 0 15px;
-	position: absolute;
-	left: 0;
+.slick-slide {
+	position: relative;
 	top: 50px;
+	margin: 0 10px;
+	height: 300px;
 	transition: 0.8s;
-
-	&.one {
-		transform: translateX(0);
-	}
-	&.two {
-		transform: translateX(100%);
-	}
-	&.three {
-		transform: translateX(200%);
-	}
-	&.four {
-		transform: translateX(-100%);
-	}	
 }
 
 .slider-item-ct {
@@ -442,33 +413,36 @@ $but_font: monospace;
 	}
 }
 
-.slider>button {	
-	position: absolute;	
-	z-index: 2;
+.slick-prev,
+.slick-next {	
+    z-index: 1;
 	width: 50px;
 	height: 50px;
 	border-radius: 50%;
 	background-color: white;
-	border: none;
-	color: black;
-	font-family: $but_font;
-	font-size: 24px;
-	top: 175px;
+	color: transparent;
 	box-shadow: 0px 0px 35px -1px #dadada;
 	transition: 0.3s;
 
-	&:hover {
-		color: white;
-		background-color: $orange;
-	}
+	&:hover, &:focus {
+		background: $orange;
 
-	&.left {
-		left: 0;
+		&:before {
+			color: white;
+            opacity: 1;
+        }
 	}
-	&.right {
-		right: 0;	
-	}
+	&:before {
+        font-family: $but_font;
+		font-size: 24px;
+        line-height: 1;
+        color: black;
+        opacity: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
 }
+
 
 .slide-radio {
 	text-align: center;
@@ -484,6 +458,13 @@ $but_font: monospace;
 			background-color: $orange;
 		}
 	}
+}
+
+.slider_slide p {
+	display: block;
+	height: 200px;
+	width: 100%;
+	background-color: #ccc;
 }
 
 /******************************************************

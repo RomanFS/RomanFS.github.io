@@ -1,75 +1,35 @@
-const time_delay_animation = 500; // see in CSS
-const time_delay_spare = 100; // to your taste
+$(document).ready(function(){
+	$('.slider').slick({
+		infinite: true,
+		slidesToShow: 2,
+		slidesToScroll: 2
+	});
+});
 
-document.getElementsByClassName('service-labels')[0].onclick = function() {
-	let radio = this.getElementsByTagName('input');
-	let items = document.getElementsByClassName('services-item-ct');
+$(document).ready(function(){
 
-	for(let i = 0; i < radio.length; i++) {
-		if (radio[i].checked) {
-			if(!items[i].classList.contains('active')){
-				items[i].classList.add('active');
+	let items = $(".services-item-ct");
+	let radio = $(".services-ct input");
+
+	$(".service").click(function(){		setTimeout(Serv, 10);	});
+
+	function Serv(){
+
+		for(let i = 0; i < radio.length; i++){
+
+			if (radio[i].checked) {
+
+				if (!items[i].classList.contains('active')){
+
+					items[i].classList.add('active');
+				} 
+			} else {
+
+				if (items[i].classList.contains('active')){
+
+					items[i].classList.remove('active');
+				}
 			}
-		} else {
-			if(items[i].classList.contains('active')){
-				items[i].classList.remove('active');
-			}
 		}
 	}
-}
-
-//let left_but = document.getElementsByClassName('left')[0];
-//let right_but = document.getElementsByClassName('right')[0];
-
-let index = [-100, 0, 100, 200];
-let items = document.getElementsByClassName('slider-item');
-
-for(let i = 0; i < items.length; i++){
-	items[i].setAttribute('screlement', i);
-}
-
-document.getElementsByClassName('right')[0].onclick = function() {
-	let this_button = document.getElementsByClassName('right')[0];
-	for(let i = 0; i < items.length; i++) {
-		let current_pos = parseInt(items[i].getAttribute('screlement'));
-		if(parseInt(items[i].getAttribute('screlement')) >= items.length-1){
-			current_pos = 0;
-			items[i].setAttribute('screlement', current_pos);
-			items[i].style.display = 'none';
-
-			this_button.setAttribute('disabled', 'disabled');
-			setTimeout(function(){
-				items[i].style.display = 'block';
-				this_button.removeAttribute('disabled');
-			}, time_delay_animation+time_delay_spare);
-		}else{
-			current_pos++;
-			items[i].setAttribute('screlement', current_pos);
-		}
-
-		items[i].style.transform = 'translateX('+ (current_pos-1)*100 + '%)';
-	}
-}
-
-document.getElementsByClassName('left')[0].onclick = function() {
-	let this_button = document.getElementsByClassName('left')[0];
-	for(let i = 0; i < items.length; i++) {
-		let current_pos = parseInt(items[i].getAttribute('screlement'));
-		if(parseInt(items[i].getAttribute('screlement')) <= 0){
-			current_pos = items.length-1;
-			items[i].setAttribute('screlement', current_pos);
-			items[i].style.display = 'none';
-
-			this_button.setAttribute('disabled', 'disabled');
-			setTimeout(function(){
-				items[i].style.display = 'block';
-				this_button.removeAttribute('disabled');
-			}, time_delay_animation+time_delay_spare);
-		}else{
-			current_pos--;
-			items[i].setAttribute('screlement', current_pos);
-		}
-
-		items[i].style.transform = 'translateX('+ (current_pos-1)*100 + '%)';
-	}
-}
+});

@@ -21,7 +21,17 @@ ul, li, a, i {
   text-decoration-line: none;
   list-style: none; }
 
-h1, h2 {
+h1 {
+  color: white;
+  letter-spacing: 0.4pt;
+  line-height: 57px;
+  font-weight: 600;
+  font-size: 42pt;
+  font-family: Source Sans Pro;
+  padding-bottom: 15px;
+  text-align: left; }
+
+h2 {
   font-weight: 600;
   font-size: 48px;
   font-family: Source Sans Pro;
@@ -40,6 +50,7 @@ p, input, a, textarea {
   font-family: Open Sans; }
 
 button {
+  cursor: pointer;
   font-weight: 600;
   font-size: 14px;
   font-family: Open Sans; }
@@ -48,16 +59,20 @@ section {
   padding: 100px 0 50px; }
 
 .header-title {
-  margin: 0 auto;
-  padding: 100px 0;
-  width: 60%; }
+  padding: 120px 0; }
   .header-title p {
-    text-align: center; }
+    font-size: 12pt;
+    font-weight: 600;
+    width: 600px;
+    text-align: left;
+    letter-spacing: 0.2pt;
+    width: 520pt;
+    color: white; }
 
 .section-title {
   padding-bottom: 100px; }
 
-.section-title > p, .header-title > p {
+.section-title > p {
   text-align: center;
   font-size: 14px;
   color: #484848; }
@@ -76,31 +91,24 @@ header {
 .sponsors {
   background-color: #fbfbfb; }
 
+header {
+  background: url("images/bg-image.jpg") center no-repeat; }
+
 .menu {
   display: grid;
-  grid-gap: 15px;
   grid-template-columns: 1fr 3fr; }
   .menu .logo {
-    padding: 30px 0; }
+    padding-top: 30px; }
   .menu ul {
-    height: 100%;
-    width: 100%;
-    display: grid;
-    grid-template-areas: ". . . . .";
-    /*display: inline-flex;
-    justify-content: space-between;*/ }
+    padding-top: 30px;
+    text-align: right; }
   .menu li {
-    display: grid;
-    height: 100%; }
+    display: inline;
+    text-align: right;
+    margin-left: 30px; }
   .menu a {
     color: #484848;
-    text-transform: uppercase;
-    justify-self: right;
-    align-self: center;
-    /*display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: right;*/
+    text-align: right;
     transition: 0.3s;
     font-weight: 600;
     font-size: 18px;
@@ -110,37 +118,33 @@ header {
 
 .header-message {
   position: relative;
-  bottom: -5px;
+  bottom: -15px;
+  left: -30px;
   display: grid;
   grid-template-columns: 1fr 2fr; }
   .header-message form {
     display: grid;
-    grid-gap: 10px;
+    grid-gap: 15px;
     background-color: white;
-    padding: 10px 30px;
-    border-radius: 3px;
-    box-shadow: 0 0 30px 3px #ddd; }
+    padding: 30px; }
   .header-message form > * {
     width: 100%; }
   .header-message input, .header-message textarea {
     border: none;
     border-bottom: 1px solid #ff5c36;
-    padding: 5px;
+    padding: 15px;
     resize: none; }
   .header-message button {
-    position: relative;
     background-color: #ff5c36;
     color: white;
-    border-radius: 15px;
+    border-radius: 30px;
     margin: 0 auto;
-    width: 80%;
+    width: 70%;
     border: none;
-    padding: 10px; }
+    padding: 15px; }
     .header-message button .arrow-right {
-      position: absolute;
-      font-size: 20px;
-      right: 20%;
-      top: 6px; }
+      font-size: 12pt;
+      font-family: Source Sans Pro; }
 
 /******************************************************
 ******************** WORKING PROCESS ******************
@@ -351,34 +355,17 @@ header {
 ******************** SLIDER ***************************
 ******************************************************/
 .slider {
-  width: 100%;
-  position: relative; }
+  padding: 0px 36px; }
 
-.slider-ct {
-  display: grid;
-  width: 95%;
-  height: 400px;
-  margin: 0 auto;
+.slick-track {
+  height: 400px; }
+
+.slick-slide {
   position: relative;
-  overflow: hidden; }
-
-.slider-item {
-  z-index: 1;
-  width: 50%;
-  height: 300px;
-  padding: 0 15px;
-  position: absolute;
-  left: 0;
   top: 50px;
-  transition: 0.5s; }
-  .slider-item.one {
-    transform: translateX(0); }
-  .slider-item.two {
-    transform: translateX(100%); }
-  .slider-item.three {
-    transform: translateX(200%); }
-  .slider-item.four {
-    transform: translateX(-100%); }
+  margin: 0 10px;
+  height: 300px;
+  transition: 0.8s; }
 
 .slider-item-ct {
   border: 1px solid #dadada;
@@ -403,27 +390,34 @@ header {
     top: -50px;
     border-radius: 50%; }
 
-.slider > button {
-  position: absolute;
-  z-index: 2;
+.slick-prev,
+.slick-next {
+  z-index: 1;
   width: 50px;
   height: 50px;
   border-radius: 50%;
   background-color: white;
-  border: none;
-  color: black;
-  font-family: monospace;
-  font-size: 24px;
-  top: 175px;
+  color: transparent;
   box-shadow: 0px 0px 35px -1px #dadada;
   transition: 0.3s; }
-  .slider > button:hover {
-    color: white;
-    background-color: #ff5c36; }
-  .slider > button.left {
-    left: 0; }
-  .slider > button.right {
-    right: 0; }
+  .slick-prev:hover, .slick-prev:focus,
+  .slick-next:hover,
+  .slick-next:focus {
+    background: #ff5c36; }
+    .slick-prev:hover:before, .slick-prev:focus:before,
+    .slick-next:hover:before,
+    .slick-next:focus:before {
+      color: white;
+      opacity: 1; }
+  .slick-prev:before,
+  .slick-next:before {
+    font-family: monospace;
+    font-size: 24px;
+    line-height: 1;
+    color: black;
+    opacity: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; }
 
 .slide-radio {
   text-align: center; }
@@ -435,6 +429,12 @@ header {
     height: 7px; }
     .slide-radio button.active {
       background-color: #ff5c36; }
+
+.slider_slide p {
+  display: block;
+  height: 200px;
+  width: 100%;
+  background-color: #ccc; }
 
 /******************************************************
 ******************** SPONSORS *************************
